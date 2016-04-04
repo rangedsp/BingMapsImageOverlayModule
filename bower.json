@@ -1,23 +1,24 @@
 {
-  "name": "BingMapsImageOverlay",
-  "authors": [
-    "Jonny Lin <jonny152007@hotmail.com>"
-  ],
-  "description": "",
-  "main": "ImageOverlayModule.js",
-  "moduleType": [],
-  "keywords": [
-    "bing",
-    "maps",
-    "overlay"
-  ],
-  "license": "MIT",
-  "homepage": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "name": "BingMapsImageOverlay",
+    "version": "0.0.2",
+    "authors": [
+        "Jonny Lin <jonny152007@hotmail.com>"
+    ],
+    "description": "",
+    "main": "ImageOverlayModule.js",
+    "moduleType": [],
+    "keywords": [
+        "bing",
+        "maps",
+        "overlay"
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
 }
