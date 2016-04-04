@@ -41,7 +41,13 @@ var ImageOverlay;
 
             var width = Math.abs(sePixel.x - nwPixel.x);
             var height = Math.abs(nwPixel.y - sePixel.y);
-
+            
+            var mapBoundsRect = map.getBounds();
+            var isInsideView = mapBoundsRect.contains(boundingBox.center);
+            if (!isInsideView) {
+                width = 0;
+                height = 0;
+            }
             return {
                 width: width,
                 height: height
@@ -70,9 +76,9 @@ var ImageOverlay;
 
         //Map view change event to resize the image
         Microsoft.Maps.Events.addHandler(map, 'viewchange', function(e) {
+            _basePushpin.Refresh();
             if (!e.linear) {
                 //Check if zoom level has changed. If it has then resize the pushpin image
-                _basePushpin.Refresh();
             }
         });
 
@@ -82,5 +88,18 @@ var ImageOverlay;
     };
 })();
 
-//Call the Module Loaded method
-Microsoft.Maps.moduleLoaded('ImageOverlayModule');
+
+var ImageOverlayModule = {
+    init: function(callback) {
+        Microsoft.Maps.registerModule('ImageOverlayModule');
+
+        //Call the Module Loaded method
+        Microsoft.Maps.moduleLoaded('ImageOverlayModule');
+
+        Microsoft.Maps.loadModule("ImageOverlayModule", {
+            callback: function() {
+                callback();
+            }
+        });
+    }
+};
